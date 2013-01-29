@@ -1,0 +1,11 @@
+uwsgi:
+  socket: 127.0.0.1:10080
+  master: 1
+  workers: 4
+  chmod-socket: 666
+  auto-procname: 1
+  plugins: python
+  python-path: .
+  pidfile: /tmp/uwsgi.pid
+  daemonize: /var/log/uwsgi.log
+  module: main:app

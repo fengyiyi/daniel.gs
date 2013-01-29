@@ -1,0 +1,76 @@
+body {
+    color: #666;
+    font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    font-size: 14px;    
+    text-align: left;
+    padding: 2px 20px 20px 20px;
+}
+
+h1 { font-size: 4.0em; color: #000; }
+h2 { font-size: 2.5em; color: #000; }
+h3 { font-size: 1.4em; color: #000; }
+h4 { font-size: 1.2em; color: #000; }
+h5 { font-size: 1.0em; color: #000; }
+
+li { list-style-type:square; }
+
+a { text-decoration: none; color: #F03; }
+a:hover { color: #000; }
+
+#recent-posts .post-title { font-size: 1.2em; display: inline; }
+#recent-posts .post-file-type { font-size: 1.0em; display: inline; }
+#recent-posts .post-modified { font-size: 1.0em; display: inline; color: #ccc; } 
+#recent-posts .post-edit { font-size: 1.0em; display: inline; } 
+#recent-posts .post-delete { font-size: 1.0em; display: inline; } 
+
+#login-info { font-size: 1.0em; border-top: 1px gray solid; }
+
+#create-new-file input[type="text"] { border: 0px; border-bottom: 1px gray solid; }
+
+#header { border-bottom: 1px solid #ddd; }
+#header a { color: #000; }
+#header a:hover { color: #F00; }
+
+#menu { border-bottom: 1px solid #ddd; }
+#menu ul { display: inline; float: left; }
+#menu ul li { display: inline; margin: 0px 2px; }
+
+#body { padding-left: 10px; }
+#body #error-msg { color: #F00; }
+#body ul { padding-left: 20px; }
+
+#navigation { border-bottom: 1px solid #ddd; }
+
+#content-body { }
+
+#entry-detail { }
+#entry-detail #entry-access-info { padding-left: 10px; }
+#entry-detail #entry-actions { padding-left: 10px; }
+#entry-detail #entry-properties { padding-left: 10px; border-top: 1px solid #ddd; }
+#entry-detail #entry-properties ul { }
+#entry-detail #entry-properties ul li { }
+#entry-detail #entry-properties .prop-val-preview { color: #999; display: inline; }
+#entry-detail .prop-edit { display: none; padding-left: 20px;  }
+#entry-detail .prop-edit .prop-edit-text { width: 400px; }
+#entry-detail .prop-edit .prop-edit-update-button { }
+#entry-detail .prop-edit .prop-edit-cancel-button { }
+#entry-detail .prop-edit .prop-edit-message { color: #F00; }
+#entry-detail #create-new-prop { padding-left: 10px; }
+#entry-detail #create-new-prop form { padding-left: 20px; }
+#entry-detail #create-new-prop #create-new-prop-name { font-style: italic; color: #999; }
+#entry-detail #create-new-prop #create-new-prop-text { width: 400px; font-style: italic; color: #999; }
+#entry-detail #create-new-prop #create-new-prop-message { color: #F00; }
+
+#child-list { border-top: 1px solid #ddd; }
+#child-list ul { }
+#child-list ul li { }
+#child-list #create-new-entry { padding-left: 10px; }
+#child-list #create-new-entry form { display: inline; }
+#child-list #create-new-entry-message { color: #F00; }
+
+#footer { border-top: 1px solid #ddd; margin-bottom: 20px; }
+#footer ul { display: inline; float: right; }
+#footer ul li { display: inline; margin: 0px 2px; }
+
+.x { clear: both; }
+.hgap10 { margin-bottom: 10px; }

@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>Daniel Kang</title>
+		<link href="/style.css" rel="stylesheet" type="text/css" />
+
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-28010813-1']);
+			_gaq.push(['_setDomainName', 'daniel.gs']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+	</head>
+	<body>
+		<h2>{{ g.author.name }}</h2>
+
+		<h3>Myself</h3>		
+		<div>
+			{{ render('intro.md') }}
+		</div>
+		
+		<h3>Recent Photos</h3>
+		{% for file in enumerate(patterns=['*.jpg'], index=0, count=5, sort_key='modified', sort_reverse=False) %}
+			<div style="display: inline;">
+				<a href="{{ file.path|urlize }}"><img src="{{ file.path }}?tn=m"/></a>
+			</div>
+		{% endfor %}
+
+		<h3>Personal Projects</h3>
+		{{ render('projects.md') }}
+        
+        <h3>Articles</h3>
+        Click <a href="/articles">here</a> to see my articles.
+
+        <h3>My Tweets</h3>
+        <a class="twitter-timeline" href="https://twitter.com/rich5264" data-widget-id="260346210836156416">Tweets by @rich5264</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+        <div id="login-info">
+			{% if g.user %}
+				You're logged in as {{ g.user.name }}. To logout, click <a href='/!user/logout'>here</a>.
+			{% else %}
+				You're not logged in. To login using your Dropbox account, click <a href='/!user/login'>here</a>.
+			{% endif %}
+		</div>
+	</body>
+</html>
+

@@ -1,0 +1,79 @@
+<html>
+	<head>
+		{% if g.file.file_name %}
+			<title>{{ g.file.file_name }} - {{ g.author.name }}</title>
+		{% else %}
+			<title>[root] - {{ g.author.name }}</title>
+		{% endif %}
+
+		<link href="/static/default_style.css" rel="stylesheet" type="text/css" />
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>        
+		<script type="text/javascript">        
+			function cancel_event_default(e) {
+			    if(e.preventDefault) e.preventDefault();
+	    		else e.returnValue = false;    
+			}
+
+			$(document).ready(function() {
+				$("#create-new-file").submit(function(){
+					var target_link = "{{ g.file.path }}/" + $("#create-textbox").val();
+		    		$("#create-new-file").attr('action', target_link);
+		    		return true;
+				});
+			});
+		</script>
+	</head>
+	<body>
+		{% if g.file.file_name %}
+			<h2>{{ g.file.file_name }}</h2>
+		{% else %}
+			<h2>[root]</h2>
+		{% endif %}
+		
+
+		<ul id="recent-posts">
+		{% for f in enumerate('*', index=g.args.get('i', 0), count=g.args.get('c', 9999999), sort_key='modified', sort_reverse=True) %}
+			<li>
+				{% if f.file_name_without_ext %}
+					<a href="{{ f.path }}" class="post-title">{{ f.file_name_without_ext }}</a>
+					<div class="post-file-type">{{ f.mime_type }}</div>
+				{% else %}
+					<a href="{{ f.path }}" class="post-title">{{ f.file_name }}</a>
+				{% endif %}
+				<div class="post-modified">{{ f.modified }}</div>
+				{% if g.user.is_author %}
+					{% if f.is_editable %}
+						<a href="{{ create_edit_url(f.path) }}" class="post-edit">[edit]</a>
+					{% endif %}
+					<a href="{{ f.path }}?delete&purl={{ request_path }}" class="post-delete">[delete]</a>
+				{% endif %}
+			</li>
+		{% endfor %}
+		</ul>
+
+		{% if g.user.is_author %}
+			<h3>create a new file</h3>
+			<ul>
+				<li>
+					<form id="create-new-file" action="" method="get">
+			            <input id="create-textbox" type="text"></input>
+			            <input id="create-button" type="submit" value="create" />
+			            <input type="hidden" name="purl" value="{{ request_path }}" />
+			            <input type="hidden" name="edit" value="1" />
+			        </form>
+		    	</li>
+		    </ul>
+	    {% endif %}
+
+		<div id="login-info">
+			<a href="/">Home</a> |
+			{% if g.user %}
+				{{ g.user.name }} (<a href='/!user/logout'>Log-out</a>)
+			{% else %}
+				<a href='/!user/login'>Log-in</a>
+			{% endif %}
+		</div>
+	</body>
+</html>
+
