@@ -1,8 +1,8 @@
 from flask import g
 from util import cached_property
 
-APP_KEY = '63m0ul0ffca32lv'
-APP_SECRET = 't6l6rueu43fw3l4'
+APP_KEY = '...'
+APP_SECRET = '...'
 ACCESS_TYPE = 'app_folder'
 
 def _create_dropbox_session():
