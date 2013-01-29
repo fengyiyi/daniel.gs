@@ -6,9 +6,9 @@ My [Dropbox][1] storage acts like a Web Server. If I sync any files in my Dropbo
 
 For example, see these files:
 
-- [/sample/image1.jpg](/sample/image1.jpg)
-- [/sample/markdown1.md](/sample/markdown1.md) - makrdown files (*.md or *.markdown) are automatically converted into HTML rendering.
-- [/sample/template1.html](/sample/template1.html) - template files (*.html) are rendered using [Jinja 2][3].
+- [/sample/image1.jpg](http://daniel.gs/sample/image1.jpg)
+- [/sample/markdown1.md](http://daniel.gs/sample/markdown1.md) - makrdown files (*.md or *.markdown) are automatically converted into HTML rendering.
+- [/sample/template1.html](http://daniel.gs/sample/template1.html) - template files (*.html) are rendered using [Jinja 2][3].
 
 All these files are located in the corresponding path under my [Dropbox][1] storage.
 
